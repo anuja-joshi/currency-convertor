@@ -11,8 +11,12 @@ it uses currency conversion rates API from [EU Bank](https://exchangeratesapi.io
 ruby run.rb
 ```
 
-## Running the test
+## Running the tests
 
 ```
 bundle exec rspec spec
+```
+## Running rubocop
+```
+bundle exec rubocop
 ```
