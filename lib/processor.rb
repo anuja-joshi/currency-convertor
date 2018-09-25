@@ -33,10 +33,16 @@ class Processor
     query_params = { base: base_currency, symbols: to_currency }
     api_caller = ::ApiCaller.new(exchanger_url, query_params)
     @fetch_rates ||= api_caller.get
+  rescue StandardError
+    p 'something went wrong in API call'
   end
 
   def convert
     conversion_factor = fetch_rates['rates'][to_currency]
     amount.to_f * conversion_factor
+  rescue StandardError
+    p 'something went wrong while converting.'\
+      ' Are you sure you entered valid currency?'
+    false
   end
 end
