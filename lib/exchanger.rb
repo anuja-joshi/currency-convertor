@@ -27,7 +27,7 @@ class Exchanger
 
   def display_result
     p '*' * 50
-    p "#{base_currency} #{amount} => #{result} #{to_currency}"
+    p "#{base_currency} #{amount} => #{result.round(2)} #{to_currency}"
     p '*' * 50
   end
 end
