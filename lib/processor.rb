@@ -2,6 +2,7 @@ require 'yaml'
 
 require_relative './api_caller.rb'
 
+# this processes user input for currency exchange
 class Processor
   def initialize(base_currency, amount, to_currency)
     @base_currency = base_currency
@@ -21,20 +22,21 @@ class Processor
 
   def exchanger_url
     config = YAML.load_file('config/constants.yml')
-    config["EXCHANGE_RATE_API_URL"]
+    config['EXCHANGE_RATE_API_URL']
   end
 
   def show_wait_msg
-    p "Seat back & relax... we are processing your request!"
+    p 'Seat back & relax... we are processing your request!'
   end
 
   def fetch_rates
-    @rates ||= ::ApiCaller.new(exchanger_url, {base: base_currency, symbols: to_currency}).get
+    query_params = { base: base_currency, symbols: to_currency }
+    api_caller = ::ApiCaller.new(exchanger_url, query_params)
+    @fetch_rates ||= api_caller.get
   end
 
   def convert
-    conversion_factor = rates["rates"][to_currency]
+    conversion_factor = fetch_rates['rates'][to_currency]
     amount.to_f * conversion_factor
   end
-
 end

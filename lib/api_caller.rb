@@ -1,6 +1,7 @@
-require 'net/http'  
-require 'json' 
+require 'net/http'
+require 'json'
 
+# this handles API calls
 class ApiCaller
   def initialize(base_url, query_params)
     @base_url = base_url
@@ -21,5 +22,4 @@ class ApiCaller
     uri.query = URI.encode_www_form(query_params)
     uri
   end
-
 end
