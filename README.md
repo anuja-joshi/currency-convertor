@@ -5,8 +5,7 @@ Simple Currency convertor based on Ruby
 1. rspec
 2. rubocop
 
-it uses currency conversion rates from [EU Bank](www.ecb.europa.eu).
-
+it uses currency conversion rates API from [EU Bank](https://exchangeratesapi.io/).
 ## Usage
 ```
 ruby run.rb
