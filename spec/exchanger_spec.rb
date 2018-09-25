@@ -8,7 +8,8 @@ describe 'Exchanger' do
     it 'raises unknown currency error when currency code is incorrect' do
     end
 
-    it 'raises incorrect currency value error when numeric input is not added' do
+    it 'raises incorrect currency value error when numeric input is \
+    not added' do
     end
   end
 end
