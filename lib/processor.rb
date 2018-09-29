@@ -26,7 +26,7 @@ class Processor
   end
 
   def show_wait_msg
-    p 'Seat back & relax... we are processing your request!'
+    p 'Sit back & relax... we are processing your request!'
   end
 
   def fetch_rates
